@@ -107,6 +107,7 @@ void pushElementAtBottom(stack<int>& st , int val) {
     printAndRestoreElement(st);
 }
 
+//PUSH ELEMENT AT PARTICULAR INDEX
 void pushElementAtIndex(stack<int>& st , int idx , int val) {
 
     cout<<"Before Pushing: ";
@@ -129,6 +130,47 @@ void pushElementAtIndex(stack<int>& st , int idx , int val) {
     printAndRestoreElement(st);
 }
 
+// DISPLAY IN REVERSE ORDER
+void displayRev(stack<int>& st){
+    if(st.size()==0) return ;
+    int x = st.top();
+    cout<<x<<" ";
+    st.pop();
+    displayRev(st);
+    st.push(x);
+}
+
+//DISPLAY IN ORIGINAL ORDER IN WHICH STACK ELEMENTS ARE PUSHED.
+void display(stack<int>& st){
+    if(st.size()==0) return ;
+    int x = st.top();
+    st.pop();
+    display(st);
+    cout<<x<<" ";
+    st.push(x);
+}
+
+void pushElementAtBottomRec(stack<int>& st , int val){
+    if(st.size()==0){
+        st.push(val);
+        return;
+    }
+    int x = st.top();
+    st.pop();
+    pushElementAtBottomRec(st , val);
+    st.push(x);
+}
+
+//REVERSING THE STACK
+void revStack(stack<int>& st){
+    if(st.size()==1) return;
+    int x = st.top();
+    st.pop();
+    revStack(st);
+    pushElementAtBottomRec(st , x);
+}
+
+
 
 int main() {
     stack<int> st;
@@ -137,6 +179,9 @@ int main() {
     st.push(30);
     st.push(40);
     st.push(50);
-    pushElementAtIndex(st , 2 , 60);
+    display(st);
+    cout<<endl;
+    revStack(st);
+    display(st);
 
 }
