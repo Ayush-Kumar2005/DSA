@@ -9,14 +9,13 @@ struct Node {
 };
 
 //===================================================================================================
-void preOrder(Node* root){
+void inOrder(Node* root){
     if(root==NULL)  return ;
+    inOrder(root->left);      //call 1 =>left call
     cout<< (root->data) <<" "; //kaam
-    preOrder(root->left);      //call 1 =>left call
-    preOrder(root->right);     //call 2 =>right call
+    inOrder(root->right);     //call 2 =>right call
 }
 //===================================================================================================
-
 
 
 int main() {
@@ -35,7 +34,7 @@ int main() {
     c->left=f;
     c->right=g;
 
-    preOrder(a);
+    inOrder(a);
 
     return 0;
 }
