@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+void preOrder(Node* root){
+    if(root==NULL)  return ;
+    cout<< (root->data) <<" "; //kaam
+    preOrder(root->left);      //call 1 =>left call
+    preOrder(root->right);     //call 2 =>right call
+}
+
+void reversePreOrder(Node* root){
+    if(root==NULL)  return ;
+    cout<< (root->data) <<" "; //kaam
+    preOrder(root->right);     //call 1 =>right call
+    preOrder(root->left);      //call 2 =>left call
+}
+
+
+int main() {
+    Node* a = new Node(1);
+    Node* b = new Node(2);
+    Node* c = new Node(3);
+    Node* d = new Node(4);
+    Node* e = new Node(5);
+    Node* f = new Node(6);
+    Node* g = new Node(7);
+
+    a->left=b;
+    a->right=c;
+    b->left=d;
+    b->right=e;
+    c->left=f;
+    c->right=g;
+
+    preOrder(a);
+    cout<<endl;
+    reversePreOrder(a);
+
+    return 0;
+}
