@@ -17,19 +17,19 @@ int levels(Node* root){
 }
 
 
-void nthLevel(Node* root , int curr , int level){
+void nthLevelReverse(Node* root , int curr , int level){
     if(root==NULL)  return ;
     if(curr==level){
         cout<< (root->data) <<" "; //kaam
     }
-    nthLevel(root->left,curr+1,level);      //call 1 =>left call
-    nthLevel(root->right,curr+1,level);     //call 2 =>right call
+    nthLevelReverse(root->right,curr+1,level);      //call 1 =>left call
+    nthLevelReverse(root->left,curr+1,level);     //call 2 =>right call
 }
 
 void levelOrder(Node* root){
     int n = levels(root);
     for(int i=1;i<=n;i++){
-        nthLevel(root,1,i);
+        nthLevelReverse(root,1,i);
         cout<<endl;
     }
 }
