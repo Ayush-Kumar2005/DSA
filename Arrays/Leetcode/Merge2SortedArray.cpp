@@ -11,3 +11,32 @@
 //     }
 
 // };
+
+
+// class Solution {
+// public:
+//     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+//         int i = 0;  // pointer for nums1 actual elements
+//         int j = 0;  // pointer nums2
+
+//         while (i < m + j && j < n) {
+//             if (nums1[i] > nums2[j]) {
+//                 // Shift elements in nums1 to the right
+//                 for (int k = m + j; k > i; k--) {
+//                     nums1[k] = nums1[k - 1];
+//                 }
+//                 nums1[i] = nums2[j];
+//                 j++;
+//             }
+//             i++;
+//         }
+
+//         // fill remaining nums2
+//         while (j < n) {
+//             nums1[m + j] = nums2[j];
+//             j++;
+//         }
+// }
+
+
+// };
