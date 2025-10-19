@@ -15,3 +15,26 @@
 //         return maxV + maxC;
 //     }
 // };
+
+
+
+// class Solution {
+// public:
+//     int maxFreqSum(string s) {
+//         unordered_map<char,int> mp;
+//         for(char c : s) mp[c]++;
+
+//         int maxV = 0, maxC = 0;
+//         string vowels = "aeiou";
+//         for(auto &p : mp) {
+//             char ch = p.first;
+//             int freq = p.second;
+//             if(vowels.find(ch) != string::npos)
+//                 maxV = max(maxV, freq);
+//             else
+//                 maxC = max(maxC, freq);
+//         }
+//         return maxV + maxC;
+//     }
+// };
+
