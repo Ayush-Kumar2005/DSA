@@ -24,6 +24,32 @@ using namespace std;
     //     return sum;
     // }
 
+//Approach-2
+int largestSumAfterKNegations(vector<int>& nums, int k) {
+    sort(nums.begin(), nums.end());  // Step 1: sort ascending
+
+    for (int i = 0; i < nums.size() && k > 0; i++) {
+        if (nums[i] < 0) {
+            nums[i] = -nums[i];
+            k--;
+        }
+    }
+
+    // Step 2: sort again to handle smallest absolute value easily
+    sort(nums.begin(), nums.end());
+
+    // Step 3: if k is odd, flip the smallest element
+    if (k % 2 == 1)
+        nums[0] = -nums[0];
+
+    // Step 4: compute sum
+    int sum = 0;
+    for (int num : nums)
+        sum += num;
+
+    return sum;
+}
+
 int main() {
     vector<int> nums = {4, 2, 3};
     int k = 1;
