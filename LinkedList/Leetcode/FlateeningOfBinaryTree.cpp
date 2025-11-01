@@ -31,3 +31,27 @@ public:
         curr->right = tempRight;
     }
 };
+
+
+class Solution {
+public:
+    TreeNode* flattenTree(TreeNode* root) {
+        if (!root) return nullptr;
+        if (!root->left && !root->right) return root;
+
+        TreeNode* leftTail = flattenTree(root->left);
+        TreeNode* rightTail = flattenTree(root->right);
+
+        if (leftTail) {
+            leftTail->right = root->right;
+            root->right = root->left;
+            root->left = nullptr;
+        }
+
+        return rightTail ? rightTail : leftTail;
+    }
+
+    void flatten(TreeNode* root) {
+        flattenTree(root);
+    }
+};
