@@ -36,3 +36,46 @@
 // };
 // Total T.C = O(nlogN)+O(n)
 // TOTAL S.C = O(ans.size())
+
+
+//APPROACH-3 : SORTING+BINARY SEARCH
+// class Solution {
+// public:
+//     int lowerBound(vector<int>& nums, int n , int target){
+//         int lo=0,hi=n-1;
+//         int lb=n;
+//         while(lo<=hi){
+//             int mid = (lo+hi)/2;
+//             if(nums[mid]>=target){
+//                 lb=mid;
+//                 hi=mid-1;
+//             }
+//             else lo=mid+1;
+//         }
+//         return lb;
+//     }
+//     int upperBound(vector<int>& nums, int n , int target){
+//         int lo=0,hi=n-1;
+//         int ub=n;
+//         while(lo<=hi){
+//             int mid = (lo+hi)/2;
+//             if(nums[mid]>target){
+//                 ub=mid;
+//                 hi=mid-1;
+//             }
+//             else lo=mid+1;
+//         }
+//         return ub;
+//     }
+//     vector<int> targetIndices(vector<int>& nums, int target) {
+//         int n = nums.size();
+//         vector<int> ans;
+//         sort(nums.begin(),nums.end());
+//         int lb = lowerBound(nums,n,target);
+//         int ub = upperBound(nums,n,target);
+//         for(int i=lb;i<ub;i++){
+//             ans.push_back(i);
+//         }
+//         return ans;
+//     }
+// };
